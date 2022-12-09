@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<!DOCTYPE html>
+	<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>3d旋转</title>
+		<style>
+			@charset "utf-8";
+
+			html {
+				background-position: center;
+				height: 100%;
+				background-color: black;
+			}
+
+			/*最外层容器样式*/
+			.wrap {
+				position: relative;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 400px;
+				height: 400px;
+				margin: auto;
+				/*改变左右上下,图片方块移动*/
+
+			}
+
+			/*包裹所有容器样式*/
+			.cube {
+				width: 400px;
+				height: 400px;
+				margin: 0 auto;
+				transform-style: preserve-3d;
+				transform: rotateX(-30deg) rotateY(-80deg);
+				animation: rotate 20s infinite;
+				/*匀速*/
+				animation-timing-function: linear;
+				/*从开头到结尾以相同的速度播放动画*/
+			}
+			img{
+				width: 100%;
+			}
+
+			@keyframes rotate {
+				from {
+					transform: rotateX(0deg) rotateY(0deg);
+				}
+
+				to {
+					transform: rotateX(360deg) rotateY(360deg);
+				}
+			}
+
+			.cube div {
+				position: absolute;
+				width: 400px;
+				height: 400px;
+				opacity: 0.8;
+				transition: all .4s;
+			}
+
+			/*定义所有图片样式*/
+			.pic {
+				width: 400px;
+				height: 400px;
+			}
+
+			.cube .out_front {
+				transform: rotateY(0deg) translateZ(200px);
+			}
+
+			.cube .out_back {
+				transform: translateZ(-200px) rotateY(180deg);
+			}
+
+			.cube .out_left {
+				transform: rotateY(90deg) translateZ(200px);
+			}
+
+			.cube .out_right {
+				transform: rotateY(-90deg) translateZ(200px);
+			}
+
+			.cube .out_top {
+				transform: rotateX(90deg) translateZ(200px);
+			}
+
+			.cube .out_bottom {
+				transform: rotateX(-90deg) translateZ(200px);
+			}
+
+			/*定义小正方体样式*/
+			.cube span {
+				display: block;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+			}
+
+			.cube .in_pic {
+				width: 200px;
+				height: 200px;
+			}
+
+			.cube .in_front {
+				transform: rotateY(0deg) translateZ(100px);
+			}
+
+			.cube .in_back {
+				transform: translateZ(-100px) rotateY(180deg);
+			}
+
+			.cube .in_left {
+				transform: rotateY(90deg) translateZ(100px);
+			}
+
+			.cube .in_right {
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+
+			.cube .in_top {
+				transform: rotateX(90deg) translateZ(100px);
+			}
+
+			.cube .in_bottom {
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+
+			/*鼠标移入后样式*/
+			.cube:hover .out_front {
+				transform: rotateY(0deg) translateZ(400px);
+			}
+
+			.cube:hover .out_back {
+				transform: translateZ(-400px) rotateY(180deg);
+			}
+
+			.cube:hover .out_left {
+				transform: rotateY(90deg) translateZ(400px);
+			}
+
+			.cube:hover .out_right {
+				transform: rotateY(-90deg) translateZ(400px);
+			}
+
+			.cube:hover .out_top {
+				transform: rotateX(90deg) translateZ(400px);
+			}
+
+			.cube:hover .out_bottom {
+				transform: rotateX(-90deg) translateZ(240px);
+			}
+		</style>
+	</head>
+
+<body>
+	<!--/*外层最大容器*/-->
+	<div class="wrap">
+		<!--	/*包裹所有元素的容器*/-->
+		<div class="cube">
+			<!--前面图片 -->
+			<div class="out_front">
+				<img src="./img/14e8439a8c0ea914f02ec0072bf8c6e.jpg"
+					class="pic" />
+			</div>
+			<!--后面图片 -->
+			<div class="out_back">
+				<img src="./img/1dfcc3d0bc67edb1e506e3970ffc2cd.jpg"
+					class="pic" />
+			</div>
+			<!--左图片 -->
+			<div class="out_left">
+				<img src="./img/2666e1e55a4466969fcced46568c6d6.jpg"
+					class="pic" />
+			</div>
+			<div class="out_right">
+				<img src="img/90df9969cd7ab87c9fc6bce3f973308.jpg">
+			</div>
+			<div class="out_top">
+				<img src="./img/c0d267e229fb00867f2d90e9ed81b37.jpg"
+					class="pic" />
+			</div>
+			<div class="out_bottom">
+				<img src="./img/d9f5ce84e6af9a605e81a1721dae021.jpg"
+					class="pic" />
+			</div>
+			<!--小正方体 -->
+			<span class="in_front">
+				<img src="./img/14e8439a8c0ea914f02ec0072bf8c6e.jpg"
+					class="in_pic" />
+			</span>
+			<span class="in_back">
+				<img src="./img/1dfcc3d0bc67edb1e506e3970ffc2cd.jpg"
+					class="in_pic" />
+			</span>
+			<span class="in_left">
+				<img src="./img/2666e1e55a4466969fcced46568c6d6.jpg"
+					class="in_pic" />
+			</span>
+			<span class="in_right">
+				<img src="img/90df9969cd7ab87c9fc6bce3f973308.jpg"
+					class="in_pic" />
+			</span>
+			<span class="in_top">
+				<img src="./img/c0d267e229fb00867f2d90e9ed81b37.jpg"
+					class="in_pic" />
+			</span>
+			<span class="in_bottom">
+				<img src="./img/d9f5ce84e6af9a605e81a1721dae021.jpg"
+					class="in_pic" />
+			</span>
+		</div>
+	</div>
+</body>
+
+</html>
